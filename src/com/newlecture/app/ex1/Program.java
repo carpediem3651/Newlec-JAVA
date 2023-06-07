@@ -1,10 +1,11 @@
 package com.newlecture.app.ex1;
 
+import java.io.FileOutputStream;
+
 public class Program {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		FileOutputStream fout = new FileOutputStream();
 	}
 
 }

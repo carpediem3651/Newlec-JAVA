@@ -11,7 +11,7 @@ class hello{
 	    kor1 = 50;
 	    total = kor1 + kor2 + kor3;
 	    avg = total / 3;
-	    int x = 3276812;
+	    short x = (short)3276812;
 	
 		System.out.printf("total is %d\n", total);
 		System.out.printf("avg is %f\n", avg);
