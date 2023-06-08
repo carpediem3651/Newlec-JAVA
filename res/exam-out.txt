@@ -1,0 +1,2 @@
+total is 120
+avg is 40.000000
