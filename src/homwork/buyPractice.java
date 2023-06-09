@@ -1,4 +1,4 @@
-package com.newlecture.app.ex2;
+package homwork;
 
 import java.io.IOException;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package com.newlecture.app.ex2;
+package homwork;
 
 public class cat {
 
