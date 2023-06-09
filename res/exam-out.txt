@@ -1,2 +1,2 @@
-total is 265
-avg is 88.000000
+total is 127
+avg is 42.000000

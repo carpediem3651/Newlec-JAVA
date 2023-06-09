@@ -23,12 +23,16 @@ public class ExamProgram {
 	    FileInputStream fis = new FileInputStream("res/exam.txt");
 	    Scanner fscan = new Scanner(fis); //fis파일에 있는 데이터를 입력데이터로 삼는다.
 	    
-	    kor1 = fscan.nextInt(); // fscan에 있는 입력데이터를 읽은 후 kor1에 담는다.
-	    System.out.println(kor1);
-	    kor2 = fscan.nextInt();
-	    System.out.println(kor2);
-	    kor3 = fscan.nextInt();
-	    System.out.println(kor3);
+//	    kor1 = fscan.nextInt();
+	    String kor1_= fscan.next(); //문자열을 불러온다. "30"
+	    kor1 = Integer.parseInt(kor1_); // 문자열을 정수로 바꾼다. "30" -> 30
+//	    System.out.println(kor1);
+	    String kor2_ =fscan.next(); //문자열을 불러온다. "30"
+	    kor2 = Integer.parseInt(kor2_); // 문자열을 정수로 바꾼다. "30" -> 30
+//	    System.out.println(kor2);
+	    String kor3_ =fscan.next(); //문자열을 불러온다. "30"
+	    kor2 = Integer.parseInt(kor3_); // 문자열을 정수로 바꾼다. "30" -> 30
+//	    System.out.println(kor3);
 	    
 	    fscan.close();
 	    fis.close();

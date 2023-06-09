@@ -1,0 +1,2 @@
+total is 97
+avg is 32.000000
