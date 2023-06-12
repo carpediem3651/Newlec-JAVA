@@ -10,10 +10,10 @@ class hello{
 	    kor3 = 80;
 	    kor1 = 50;
 	    total = kor1 + kor2 + kor3;
-	    avg = total / 3;
+	    avg = (float)(total / 3.0);
 	    short x = (short)3276812;
 	
 		System.out.printf("total is %d\n", total);
-		System.out.printf("avg is %f\n", avg);
+		System.out.printf("avg is %.4f\n", avg);
     }
 }
