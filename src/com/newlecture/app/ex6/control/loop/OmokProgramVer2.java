@@ -20,7 +20,7 @@ public class OmokProgramVer2 {
 			switch (menu) {
 			case 1: {
 				{
-					for (int i = 0; i < 12; i++) {
+					for (int i = 0; i < 12; i++) { //아무것도 없는 오목그림이 나온다.
 						for (int j = 0; j < 12; j++)
 
 							if (i == 0 && j == 0)
@@ -46,7 +46,7 @@ public class OmokProgramVer2 {
 
 					} // for i
 				} // 지역화
-				GAMEOVER: while (true) {
+				GAMEOVER: while (true) { // 값의 입력 및 조건이 설정된다.
 					int ox = -1;
 					int oy = -1;
 
@@ -67,8 +67,7 @@ public class OmokProgramVer2 {
 							System.out.println("오목 좌표의 범위(-1 or 1~10)를 벗어났습니다."); // while(true)문 안에서 반복되어야 하지만 조건이
 						// 달성되어야만 돌아거라서 조건을 따로 한 번 더 걸어줬다.
 
-					} while (!((1 <= ox && ox <= 10) && (1 <= oy && oy <= 10))); // ||을 했을 때는 왜 안되는지 생각해보기 //오목조건에 맞아야
-					// 한다는 뜻이다.
+					} while (!((1 <= ox && ox <= 10) && (1 <= oy && oy <= 10)));
 
 					for (int i = 0; i < 12; i++) {
 						for (int j = 0; j < 12; j++)
