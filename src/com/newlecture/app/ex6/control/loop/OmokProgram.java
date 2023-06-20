@@ -50,7 +50,7 @@ public class OmokProgram {
 //		    System.out.println();
 //		}
 		
-		//10x10x 오목판에 오목 두기 ver2
+		//10x10 오목판에 오목 두기 ver2
 		
 //		for(int j=0; j<12; j++) {		
 //			for(int i=0; i<12; i++) 							
@@ -83,6 +83,8 @@ public class OmokProgram {
 //			System.out.println();
 //		}
 		
+		//10x10 오목판 두기 ver3(조건에 따라 탈출하기)
+		
 		for(int j=0; j<12; j++) {		
 			for(int i=0; i<12; i++) 							
 
@@ -110,25 +112,28 @@ public class OmokProgram {
 			System.out.println();
 		}
 		
-		
-		
-		
-		while(true)
-		{
+	while(true) {
+		Scanner scan = new Scanner(System.in);
 		
 		int ox = 0;
 		int oy = 0;
 		
-		System.out.println("그만두기 -1");
-		System.out.println("(x sp y):");
-		
-		Scanner scan = new Scanner(System.in);
-		ox = scan.nextInt();
-		oy = scan.nextInt();
-		
-		if(ox==-1) 
-			break;
-		
+		do {
+			System.out.println("그만두기 -1 0");
+			System.out.println("(x sp y):");
+			
+			ox = scan.nextInt();
+			oy = scan.nextInt();
+			
+			if(ox==-1 || oy==-1) {
+				System.out.println("안녕");
+				return; //do while문에는 break대신에 return을 쓴다.
+			}
+			
+			if(!((1<=ox&&ox<=10) && (1<=oy&&oy<=10)))
+					System.out.println("오목 좌표의 범위(-1 or 1~10)를 벗어났습니다.");
+		} while (!((1<=ox&&ox<=10) && (1<=oy&&oy<=10)));
+			
 		for(int j=0; j<12; j++) {		
 			for(int i=0; i<12; i++) 							
 				
@@ -157,6 +162,5 @@ public class OmokProgram {
 			System.out.println();
 		}
 	}
-		System.out.println("안녕!");
 	}
 }
