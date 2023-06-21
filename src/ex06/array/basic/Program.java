@@ -23,9 +23,9 @@ public class Program {
 			for(int i=0; fscan.hasNext(); i++) { //배열의 0번째부터 배열에 데이터가 존재하는 위치까지 데이터를 불러온다.
 //				String num= sc.next(); //문자열을 불러온다.  
 //			    nums[i] = Integer.parseInt(num); // 문자열을 정수로 바꾼다. 
-				int num = fscan.nextInt();
-				nums[i] = num;
-				size++; // 반복문을 돌 때 마다 size를 하나씩 증가시켜 숫자가 몇번 찍혔는지 알 수 있다.
+				int num = fscan.nextInt(); //문자열을 불러온다.
+				nums[i] = num; // 배열에 문자열을 넣는다.
+				size++; // 반복문을 돌 때 마다 size를 하나씩 증가시켜 배열에 데이터가 몇 개 있는지 알 수 있다.
 			}
 			
 			
@@ -40,7 +40,7 @@ public class Program {
 		  System.out.println();
 		}
 		
-//		3.위치 찾기
+//		2.위치 찾기
 		{
 			for(int i=0; i<size; i++) {
 				idx++;
@@ -58,9 +58,10 @@ public class Program {
 //					break;
 //				}
 //			}
+//			System.out.println("인덱스의 값은"+idx+"입니다.");
 		}
 		
-//		4.숫자 90과 0번째 위치에 있는 숫자 값 바꾸기
+//		3.숫자 90과 0번째 위치에 있는 숫자 값 바꾸기
 		{
 			int tmp; // 빈 공간 하나를 만든다.
 			tmp = nums[0]; // 0번째에 있는 숫자를 빈 공간에 넣는다.
@@ -69,7 +70,7 @@ public class Program {
 			System.out.println(nums[0]+" "+nums[idx]);
 		}
 		
-//		5.저장하기
+//		4.파일에 저장하기
 		{
 			FileOutputStream fos = new FileOutputStream("res/array/dataPrint.txt"); 
 			PrintWriter fout2 = new PrintWriter(fos, true, Charset.forName("UTF-8"));
