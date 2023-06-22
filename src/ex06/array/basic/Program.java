@@ -53,6 +53,7 @@ public class Program {
 			
 			//break문 사용
 //			for(int i=0; i<size; i++) {
+//				idx++;
 //				if(nums[i]==90) {
 //					idx = i;
 //					break;
