@@ -23,7 +23,7 @@ public class Program {
 			for(int i=0; fscan.hasNext(); i++) { //배열의 0번째부터 배열에 데이터가 존재하는 위치까지 데이터를 불러온다.
 //				String num= sc.next(); //문자열을 불러온다.  
 //			    nums[i] = Integer.parseInt(num); // 문자열을 정수로 바꾼다. 
-				int num = fscan.nextInt(); //문자열을 불러온다.
+				int num = fscan.nextInt(); //문자열을 불러와 int로 변환시켜 num에 넣는다.
 				nums[i] = num; // 배열에 문자열을 넣는다.
 				size++; // 반복문을 돌 때 마다 size를 하나씩 증가시켜 배열에 데이터가 몇 개 있는지 알 수 있다.
 			}
@@ -33,25 +33,25 @@ public class Program {
 			fis.close();
 		}
 		
-// 		nums 출력하기
-		{
-		  for(int i=0; i<size; i++)
-			System.out.printf("%d,", nums[i]);
-		  System.out.println();
-		}
+//// 		nums 출력하기
+//		{
+//		  for(int i=0; i<size; i++)
+//			System.out.printf("%d,", nums[i]);
+//		  System.out.println();
+//		}
 		
 //		2.위치 찾기
 		{
-			for(int i=0; i<size; i++) {
-				idx++;
-				int search = nums[i];
-				if(search==90) {
-					System.out.println("숫자 90은"+" "+idx+"번째 자리에 있지롱!");
-					break; // break문 까먹지 말자. 이거 까먹으면 출력문만 찍고 계속 반복문 돈다.
-				}
-			}
+//			for(int i=0; i<size; i++) {
+//				idx++;
+//				int search = nums[i];
+//				if(search==90) {
+//					System.out.println("숫자 90은"+" "+idx+"번째 자리에 있지롱!");
+//					break; // break문 까먹지 말자. 이거 까먹으면 출력문만 찍고 계속 반복문 돈다.
+//				}
+//			}
 			
-			//break문 사용
+////			break문 사용
 //			for(int i=0; i<size; i++) {
 //				idx++;
 //				if(nums[i]==90) {
@@ -63,25 +63,78 @@ public class Program {
 		}
 		
 //		3.숫자 90과 0번째 위치에 있는 숫자 값 바꾸기
+//		{
+//			int tmp; // 빈 공간 하나를 만든다.
+//			tmp = nums[0]; // 0번째에 있는 숫자를 빈 공간에 넣는다.
+//			nums[0] = nums[idx]; // 90숫자를 0번째에 넣는다.
+//			nums[idx] = tmp; //빈공간에 있는 숫자를 숫자 90이 있던 자리에 넣는다.
+//			System.out.println(nums[0]+" "+nums[idx]);
+//		}
+
+//		-------------------------------------------------- 필수 프로그래밍 기법---------------------------------------
+		// 제일 큰 값 찾기
+//		{ 
+//			int max = nums[0];
+//			// 2번째(=인덱스 1) 숫자부터 겨루기를 해서 왕좌를 탈환하라.
+//			// 몇 번의 반복? size-1
+//			for(int i=0; i<size-1; i++) {
+//				if(nums[i+1]>max) {
+//					max = nums[i+1];
+//				}
+//			}
+//			System.out.printf("max: %d\n", max);
+//		}
+		
+//		// 자리 바꾸기 방식으로 큰 값 찾기
+//		{
+//			
+//			for(int i=0; i<size-1; i++) {
+//				if(nums[i]>nums[i+1]) {
+//					int temp;
+//					temp = nums[i];
+//					nums[i] = nums[i+1];
+//					nums[i+1] = temp;
+//				}			
+//			}
+//			System.out.printf("max : %d\n", nums[size-1]);		
+//		}
+		
+//		//최솟값의 인덱스 찾기
+//		{
+//			int minIndex = 0; //최초 인덱스를 설정한다. 최초 인덱스는 0
+//			for(int i=0; i<size-1; i++) {
+//				if(nums[minIndex]>nums[i+1]) { // 설정한 인덱스 다음 나오는 데이터가 인덱스에 담긴 값보다 더 작으면 그 값의 인덱스'i+1'를 minIndex에 넣는다.
+//					minIndex = i+1;
+//				}
+//				System.out.println(minIndex);
+//			}
+//			System.out.printf("min index : %d\n", minIndex);
+//		}
+		
+		//버블 정렬
 		{
-			int tmp; // 빈 공간 하나를 만든다.
-			tmp = nums[0]; // 0번째에 있는 숫자를 빈 공간에 넣는다.
-			nums[0] = nums[idx]; // 90숫자를 0번째에 넣는다.
-			nums[idx] = tmp; //빈공간에 있는 숫자를 숫자 90이 있던 자리에 넣는다.
-			System.out.println(nums[0]+" "+nums[idx]);
+			// 1등찾기 -> 비교를 위한 반복횟수 size-1
+			// 2등찾기 -> 비교를 위한 반복횟수 size-2
+			// n등찾기 -> 비교를 위한 반복횟수 size-n => 그림을 그려보면 쉽게 알 수 있다.
+			
+			for(int j=0; j<size-1; j++) // j는 값의 비교를 통해 최종적으로 결정된 숫자로 인해 제외 해야하는 수다. 숫자가 결정됐기에 반복 횟수에서 빠진다(size-1-i)
+				for(int i=0; i<(size-1)-j; i++) //size-1은 비교횟수
+					if(nums[i]>nums[i+1]) { // 자리를 바꿔 큰 값을 오른쪽으로 보내는 코드
+						int temp;
+						temp = nums[i];
+						nums[i] = nums[i+1];
+						nums[i+1] = temp;
+					}	
 		}
 		
-//		4.파일에 저장하기
+		
+//		4.파일에 값 저장하기
 		{
 			FileOutputStream fos = new FileOutputStream("res/array/dataPrint.txt"); 
 			PrintWriter fout2 = new PrintWriter(fos, true, Charset.forName("UTF-8"));
 			
-			for(int i=0; i<size; i++) { //반복의 제한을 어떻게 설정할건가?
-				fout2.printf("%d,",nums[i]);
-			}
-			
 			fos.close();
 		}
-
+		
 	}
 }
