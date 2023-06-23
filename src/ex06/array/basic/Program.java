@@ -112,19 +112,93 @@ public class Program {
 //		}
 		
 		//버블 정렬
+//		{
+//			// 1등찾기 -> 비교를 위한 반복횟수 size-1
+//			// 2등찾기 -> 비교를 위한 반복횟수 size-2
+//			// n등찾기 -> 비교를 위한 반복횟수 size-n => 그림을 그려보면 쉽게 알 수 있다.
+//			
+//			for(int j=0; j<size-1; j++) // j는 값의 비교를 통해 최종적으로 결정된 숫자로 인해 제외 해야하는 수다. 숫자가 결정됐기에 반복 횟수에서 빠진다(size-1-i)
+//				for(int i=0; i<(size-1)-j; i++) //size-1은 비교횟수
+//					if(nums[i]>nums[i+1]) { // 자리를 바꿔 큰 값을 오른쪽으로 보내는 코드
+//						int temp;
+//						temp = nums[i];
+//						nums[i] = nums[i+1];
+//						nums[i+1] = temp;
+//					}	
+//		}
+		
+		//선택정렬
 		{
-			// 1등찾기 -> 비교를 위한 반복횟수 size-1
-			// 2등찾기 -> 비교를 위한 반복횟수 size-2
-			// n등찾기 -> 비교를 위한 반복횟수 size-n => 그림을 그려보면 쉽게 알 수 있다.
+//------------------------<선택정렬 일반화 코드>--------------------------------------------------------	
+			for(int j=0; j<size-1; j++) {
+				{   // step1.최솟값의 인덱스를 찾는다.
+					int firstArr=j;// 배열의 첫번 째 위치
+					int minIndex = j; //최초 인덱스를 설정한다. 최초 인덱스는 0
+					for(int i=0; i<size-1-firstArr; i++) {
+						if(nums[minIndex]>nums[i+1+j]) { // 설정한 인덱스 다음 나오는 데이터가 인덱스에 담긴 값보다 더 작으면 그 값의 인덱스'i+1'를 minIndex에 넣는다.
+							minIndex = i+1+j;
+						}
+					}
+					
+					// step2.최솟값과 첫번째(인덱스0) 자리의 숫자를 바꾼다.
+					int tmp;
+					tmp = nums[firstArr];
+					nums[firstArr] = nums[minIndex];
+					nums[minIndex] = tmp;
+				}
+			}
 			
-			for(int j=0; j<size-1; j++) // j는 값의 비교를 통해 최종적으로 결정된 숫자로 인해 제외 해야하는 수다. 숫자가 결정됐기에 반복 횟수에서 빠진다(size-1-i)
-				for(int i=0; i<(size-1)-j; i++) //size-1은 비교횟수
-					if(nums[i]>nums[i+1]) { // 자리를 바꿔 큰 값을 오른쪽으로 보내는 코드
-						int temp;
-						temp = nums[i];
-						nums[i] = nums[i+1];
-						nums[i+1] = temp;
-					}	
+// --------------------------- <선택정렬 과정을 이해하는 코드>---------------------------------------------			
+			//1회
+//			{   // step1.최솟값의 인덱스를 찾는다.
+//				int firstArr=0;// 배열의 첫번 째 위치
+//				int minIndex = 0; //최초 인덱스를 설정한다. 최초 인덱스는 0
+//				for(int i=0; i<size-1-firstArr; i++) { // size의 범주가 이동하면서 비교하려는 데이터의 수를 넘어선다. 그래서 -firstArr를 한다.
+//					if(nums[minIndex]>nums[i+1]) { // 설정한 인덱스 다음 나오는 데이터가 인덱스에 담긴 값보다 더 작으면 그 값의 인덱스'i+1'를 minIndex에 넣는다.
+//						minIndex = i+1;
+//					}
+//				}
+//				
+//				// step2.최솟값과 첫번째(인덱스0) 자리의 숫자를 바꾼다.
+//				int tmp;
+//				tmp = nums[firstArr];
+//				nums[firstArr] = nums[minIndex];
+//				nums[minIndex] = tmp;
+//			}
+			
+			//2회
+//			{   // step1.최솟값의 인덱스를 찾는다.
+//				int firstArr=1; //1회에서 0번째 값을 처리했으므로(더이상 0번째는 신경x) 2회의 첫번째 배열위치는 1로 설정한다. 
+//				int minIndex = 1; //최초 인덱스를 설정한다. 최초 인덱스는 배열의 0번째는 이미 끝났으므로 최초 인덱스는 1
+//				for(int i=0; i<size-1-firstArr; i++) { 
+//					if(nums[minIndex]>nums[i+2]) { // 설정한 인덱스 다음 나오는 데이터가 인덱스에 담긴 값보다 더 작으면 그 값의 인덱스'i+1'를 minIndex에 넣는다.
+//						minIndex = i+2;
+//					}
+//				}
+//				
+//				// step2.최솟값과 첫번째(인덱스0) 자리의 숫자를 바꾼다.
+//				int tmp;
+//				tmp = nums[firstArr];
+//				nums[firstArr] = nums[minIndex];
+//				nums[minIndex] = tmp;
+//			}
+//			
+//			//3회
+//			{   // step1.최솟값의 인덱스를 찾는다.
+//				int firstArr=2; //1회와 2회에서 0번째 값을 처리했으므로(더이상 0번째는 신경x) 2회의 첫번째 배열위치는 1로 설정한다. 
+//				int minIndex = 2; //최초 인덱스를 설정한다. 최초 인덱스는 배열의 0번째는 이미 끝났으므로 최초 인덱스는 2
+//				for(int i=0; i<size-1-firstArr; i++) { 
+//					if(nums[minIndex]>nums[i+3]) { // 설정한 인덱스 다음 나오는 데이터가 인덱스에 담긴 값보다 더 작으면 그 값의 인덱스'i+1'를 minIndex에 넣는다.
+//						minIndex = i+3;
+//					}
+//				}
+//				
+//				// step2.최솟값과 첫번째 자리의 숫자를 바꾼다.
+//				int tmp;
+//				tmp = nums[firstArr];
+//				nums[firstArr] = nums[minIndex];
+//				nums[minIndex] = tmp;
+//			}
 		}
 		
 		
@@ -132,6 +206,10 @@ public class Program {
 		{
 			FileOutputStream fos = new FileOutputStream("res/array/dataPrint.txt"); 
 			PrintWriter fout2 = new PrintWriter(fos, true, Charset.forName("UTF-8"));
+			
+			for(int i=0; i<size; i++) { //배열의 값을 파일에 저장한다.
+				fout2.printf("%d,",nums[i]);
+			}
 			
 			fos.close();
 		}
