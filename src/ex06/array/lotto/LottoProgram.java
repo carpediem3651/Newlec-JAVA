@@ -17,7 +17,7 @@ public class LottoProgram {
 //	         System.out.println(num);
 //	      }
 
-		// 1. lotto 배열을 랜덤한 값들로 채우고
+		// 1. lotto 배열을 랜덤한 값들로 채우고 중복을 제거한다. 중족을 어떻게 제거할 건가?
 		for (int i = 0; i < 6; i++) {
 			size++;
 			lotto[i] = rand.nextInt(6) + 1;
@@ -49,7 +49,7 @@ public class LottoProgram {
 		for(int i=0; i<size; i++ ) // 쉼표 어떻게 없애지?
 			System.out.print(lotto[i]);
 
-			if(idx<size)
+			if(size<size)
 				System.out.println(", ");
 	}
 }
