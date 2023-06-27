@@ -1,7 +1,6 @@
-package ex07.zarray;
+package ex08.function;
 
-public class Program2 {
-
+public class Program3 {
 	public static int[][] createLottos() {
 		return new int[][]{{1,2,3,4,5,6},{7,8,9,10,11,12},{13,14,15,16,17,18}};
 	}
@@ -47,7 +46,4 @@ public class Program2 {
 //			System.out.println();
 //		}
 	}
-
-
-
 }
