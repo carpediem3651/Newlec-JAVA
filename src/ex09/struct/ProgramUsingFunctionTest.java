@@ -1,25 +1,23 @@
 package ex09.struct;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class ProgramTest {
+public class ProgramUsingFunctionTest {
 	public static void main(String[] args) throws IOException {
-		// 공통클래스
 		ExamList list = new ExamList();
 		
-		//성적로드
+		// 성적로드
 		load(list);
-
-		// 정렬하기(오름차순)
+		//sort
 		sort(list);
-
-		// 성적출력
+		
+		//print
 		print(list);
-	}
 
-	
+	}
 
 	private static void print(ExamList list) {
 		int size = list.index;
@@ -34,7 +32,8 @@ public class ProgramTest {
 
 			int total = kor + eng + math;
 			float avg = total / 3.0f;
-
+			
+			System.out.printf("%d등.", i+1);
 			System.out.printf("국어:%d, 영어:%d, 수학:%d, 총합:%d, 평균:%f\n", kor, eng, math, total, avg);
 		}
 	}
@@ -42,23 +41,22 @@ public class ProgramTest {
 	private static void sort(ExamList list) {
 		int size = list.index;
 		Exam[] exams = list.exams;
-		
-		for(int j=0; j<size-1; j++) // j는 값의 비교를 통해 최종적으로 결정된 숫자로 인해 제외 해야하는 수다. 숫자가 결정됐기에 반복 횟수에서 빠진다(size-1-i)
-			for(int i=0; i<(size-1)-j; i++) //size-1은 비교횟수
-				if(exams[i].total < exams[i+1].total) { // 자리를 바꿔 큰 값을 오른쪽으로 보내는 코드
-					Exam temp;
-					temp = exams[i];
-					exams[i] = exams[i+1];
-					exams[i+1] = temp;
+
+		for (int j = 0; j < size - 1; j++)
+			for (int i = 0; i < size - 1 - j; i++)
+				if (exams[i].avg < exams[i + 1].avg) {
+					Exam temp = exams[i];
+					exams[i] = exams[i + 1];
+					exams[i + 1] = temp;
 				}		
 	}
 
 	private static void load(ExamList list) throws IOException {
+		Exam[] exams = list.exams;
+		int index = list.index;
+		
 		FileInputStream fis = new FileInputStream("res/ex09/exam.txt");
 		Scanner fscan = new Scanner(fis);
-		
-		int index = list.index;
-		Exam[] exams = list.exams;
 
 		fscan.nextLine(); // 라인 한 줄을 버린다.
 
@@ -83,6 +81,5 @@ public class ProgramTest {
 		
 		list.exams = exams;
 		list.index = index;
-	
 	}
 }
