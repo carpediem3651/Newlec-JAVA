@@ -1,4 +1,4 @@
-package ex11.oop.basic;
+package ex12.oop.basic.hasA;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -8,44 +8,31 @@ import java.nio.charset.Charset;
 import java.util.Scanner;
 
 public class Exam {
-	int kor;
-	int eng;
-	int math;
-
-	public Exam(int kor, int eng, int math) {
-		this.kor = kor;
-		this.eng = eng;
-		this.math = math;
+	private int kor;
+	private int eng;
+	private int math;
+	
+	public Exam(int kor,int eng, int math) {
+		this.kor=kor;
+		this.eng=eng;
+		this.math=math;
 	}
-
+	
 	public Exam() {
-		this(3, 4, 5);
+		this(3,4,5);
 	}
-
-	public void print() {
-		System.out.printf("kor:%d, eng:%d, math:%d\n", kor, eng, math);
-	}
-
-	public void input() {
-		Scanner scan = new Scanner(System.in);
-		System.out.print("kor:");
-		kor = scan.nextInt();
-		System.out.print("eng:");
-		eng = scan.nextInt();
-		System.out.print("math:");
-		math = scan.nextInt();
-	}
+	
 
 	public int total() {
 		// TODO Auto-generated method stub
-		return kor + eng + math;
+		return kor+eng+math;
 	}
 
 	public float avg() {
 		// TODO Auto-generated method stub
-		return kor + eng + math / 3f;
+		return kor+eng+math/3f;
 	}
-
+	
 	public void save(String fileName) throws IOException {
 		// 데이터를 가져온다.
 		String path = "res/ex11/" + fileName;
@@ -75,4 +62,29 @@ public class Exam {
 		sc.close();
 		fis.close();
 	}
+
+	public int getKor() {
+		return kor;
+	}
+
+	public void setKor(int kor) {
+		this.kor = kor;
+	}
+
+	public int getEng() {
+		return eng;
+	}
+
+	public void setEng(int eng) {
+		this.eng = eng;
+	}
+
+	public int getMath() {
+		return math;
+	}
+
+	public void setMath(int math) {
+		this.math = math;
+	}
+	
 }
