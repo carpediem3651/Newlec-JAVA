@@ -1,19 +1,15 @@
 package ex15.oop.basic.hasA.isA;
 
+import java.awt.Frame;
 import java.io.IOException;
 
 public class Program {
 
 	public static void main(String[] args) throws IOException {
-		NewExam exam = new NewExam();
-		exam.setKor(10);
-		exam.setEng(20);
-		exam.setMath(30);
-		exam.setCom(40);
 		
-		int total = exam.total();
+		Frame frame = new GameFrame();
+		frame.setVisible(true);
 		
-		System.out.printf("total is %d\n", total););
 		
 //		ExamConsole console = new ExamConsole();
 //
