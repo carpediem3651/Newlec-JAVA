@@ -47,7 +47,7 @@ public class ExamConsole {
 
 	public void printAll() {
 		System.out.println("┌──────────┐");
-		System.out.println("│          성적 목록       │");
+		System.out.println("│  성적 목록  │");
 		System.out.println("└──────────┘");
 
 		int size = index;
