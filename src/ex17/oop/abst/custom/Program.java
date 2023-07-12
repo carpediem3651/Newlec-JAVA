@@ -1,4 +1,4 @@
-package ex16.oop.abst.cumstom;
+package ex17.oop.abst.custom;
 
 import java.io.IOException;
 

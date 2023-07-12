@@ -1,6 +1,6 @@
-package ex16.oop.abst.cumstom;
+package ex18.oop.poly.inter;
 
-public class NewExam extends Exam{
+public class NewExam extends Exam implements PrintListener{
 	
 	private int com;
 	
@@ -32,5 +32,15 @@ public class NewExam extends Exam{
 	public void setCom(int com) {
 		this.com = com;
 	}
-	
+
+	@Override
+	public void printBanner() {
+		System.out.println("뉴렉 고등학교 성적표!");
+		
+	}
+
+	@Override
+	public void printEx() {
+		System.out.println("com:"+com);
+	}
 }

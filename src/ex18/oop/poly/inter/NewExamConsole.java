@@ -1,4 +1,4 @@
-package ex16.oop.abst.cumstom;
+package ex18.oop.poly.inter;
 
 public class NewExamConsole extends ExamConsole {
 //	★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
