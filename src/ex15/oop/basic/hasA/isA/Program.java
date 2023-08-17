@@ -7,16 +7,16 @@ public class Program {
 
 	public static void main(String[] args) throws IOException {
 		
-		Frame frame = new GameFrame();
-		frame.setVisible(true);
+//		Frame frame = new GameFrame();
+//		frame.setVisible(true);
 		
 		
-//		ExamConsole console = new ExamConsole();
-//
-//		console.input();
-//		console.input();
-//		console.input();
-//		console.print(2);
-//		console.printAll();
+		ExamConsole console = new ExamConsole();
+
+		console.input();
+		console.input();
+		console.input();
+		console.print(2);
+		console.printAll();
 	}
 }

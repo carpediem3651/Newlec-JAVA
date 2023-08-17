@@ -11,9 +11,11 @@ public class Program {
 		
 		int total = exam.total();
 		float avg = exam.avg();
-		exam.save("exam.data");
-		exam.load("exam.data");
+//		exam.save("exam.data");
+//		exam.load("exam.data");
 		
 		exam.print();
+		
+		System.out.printf("%d,%f", total,avg);
 	}
 }
